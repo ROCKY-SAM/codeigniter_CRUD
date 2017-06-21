@@ -273,3 +273,34 @@ DirectoryIndex index.php
     }
 	}
 	
+	
+	
+	
+	
+	
+	
+//model
+$username = $this->input->post('username');
+$password = $this->input->post('password');
+$this->load->model('registermodel');
+$this->registermodel->registeruser($username,$password);
+
+//model
+return $this->db->insert('users',['username'=>$username,'password'=>$password]);
+
+		$this->form_validation->set_rules('description', 'Description', 'required|is_unique[users.username]');
+
+		
+//session set
+$this->session->set_userdata('name',value);
+//session get
+$user = $this->session->userdata('name');
+echo $user
+
+
+//ifelse
+<?php if($this->session->userdata('userid')): ?>
+<?php echo anchor('login/logout','login'); ?>
+<?php else: ?>
+<?php echo anchor('register','regiter'); ?>
+<?php endif ?>
